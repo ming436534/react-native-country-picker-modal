@@ -98,5 +98,6 @@ export default StyleSheet.create({
     height: 24,
     width: 24,
     resizeMode: 'contain'
-  }
+  },
+  callingCode: {}
 })

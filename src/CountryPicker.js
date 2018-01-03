@@ -305,12 +305,14 @@ export default class CountryPicker extends Component {
         {CountryPicker.renderFlag(cca2)}
         <View style={styles.itemCountryName}>
           <Text style={styles.countryName}>{this.getCountryName(country)}</Text>
+          {(country.callingCode) ? <Text style={styles.callingCode}>+{`${country.callingCode}`}</Text> : null}
         </View>
       </View>
     )
   }
 
   render() {
+    const country = countries[this.props.cca2]
     return (
       <View>
         <TouchableOpacity
@@ -324,7 +326,8 @@ export default class CountryPicker extends Component {
             <View
               style={[styles.touchFlag, { marginTop: isEmojiable ? 0 : 5 }]}
             >
-              {CountryPicker.renderFlag(this.props.cca2)}
+              <Text style={styles.callingCode}>+{`${country.callingCode}`}</Text>
+              {this.props.callingCodeIcon}
             </View>
           )}
         </TouchableOpacity>
